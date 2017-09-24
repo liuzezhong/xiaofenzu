@@ -1,0 +1,109 @@
+/* pages/create/create.wxss */
+
+.line {
+    margin-left: 30rpx;
+    width: 690rpx;
+    height: 115rpx;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 2px;
+    display: flex;
+    flex-direction: row;
+}
+
+.first-view {
+    margin-top: 44rpx;
+}
+
+.line-value {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 34rpx;
+}
+
+.line-name {
+    width: 220rpx;
+}
+
+.primary-view {
+    margin-top: 30rpx;
+}
+
+.line-switch {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 450rpx;
+}
+
+.jiantou-view {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20rpx;
+}
+
+.jiantou-image {
+    width: 24rpx;
+    height: 36rpx;
+}
+
+.fen-style {
+    padding-right: 36rpx;
+    font-size: 34rpx;
+}
+
+.tiaokuan-line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 30rpx;
+    margin-top: 30rpx;
+}
+
+checkbox {
+    zoom: 50%;
+}
+
+.tiaokuan-text {
+    font-size: 28rpx;
+    color: #b2b2b2;
+}
+
+.check-view {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.check-text {
+  display: flex;
+    flex-direction: row;
+    margin-left: 10rpx;
+}
+
+.modal-text {
+    color: #576b95;
+}
+
+
+button {
+    width: 690rpx;
+    height: 100rpx;
+    border-radius: 4rpx;
+    background-color: rgba(237, 149, 62, 1);
+    margin-top: 30rpx;
+    margin-left: 30rpx;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+button::after {
+  border: none;
+}

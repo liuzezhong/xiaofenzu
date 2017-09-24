@@ -1,0 +1,87 @@
+/* pages/invit/invit.wxss */
+
+image {
+    width: 110rpx;
+    height: 110rpx;
+    border-radius: 100%;
+}
+
+.image-view {
+    margin-top: 56rpx;
+    display: flex;
+    justify-content: center;
+}
+
+.main-view {
+    width: 648rpx;
+    height: 450rpx;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 2px;
+    margin-left: 51rpx;
+    margin-top: -56rpx;
+}
+
+button {
+    margin-top: 48rpx;
+    margin-left: 51rpx;
+    width: 652rpx;
+    height: 96rpx;
+    background: rgba(237, 149, 62, 1);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.button-primary {
+    margin-top: 30rpx;
+    margin-left: 51rpx;
+    background: rgba(248, 248, 248, 1);
+    color: #333;
+}
+
+button::after {
+    border: none;
+}
+
+.nickname-view {
+    padding-top: 64rpx;
+    display: flex;
+    justify-content: center;
+}
+
+.nickname-text {
+    color: #b2b2b2;
+    font-size: 28rpx;
+}
+
+.line {
+    margin-top: 16rpx;
+    width: 550rpx;
+    height: 2rpx;
+    opacity: 0.2;
+    background-color: #b2b2b2;
+    margin-left: 49rpx;
+}
+
+.first-line {
+    margin-left: 49rpx;
+    margin-top: 36rpx;
+}
+
+.other-line {
+    margin-left: 49rpx;
+    margin-top: 40rpx;
+}
+
+.title-text {
+    color: rgba(136, 136, 136, 1);
+    font-size: 36rpx;
+}
+
+.value-text {
+    color: #333;
+    font-size: 36rpx;
+    padding-left: 30rpx;
+}

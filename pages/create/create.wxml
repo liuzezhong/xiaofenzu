@@ -1,0 +1,53 @@
+<view class="container">
+    <view class="line first-view">
+        <view class="line-value line-name"><text>分组名称</text></view>
+        <view class="line-value"><input type="text" placeholder="请输入分组名称" focus/></view>
+    </view>
+
+    <view class="line primary-view">
+        <view class="line-value line-name"><text>每组人数</text></view>
+        <view class="line-value"><input type="number" placeholder="请输入每组人数" focus/></view>
+    </view>
+
+    <view class="line primary-view">
+        <view class="line-value line-name"><text>选出组长</text></view>
+        <view class="line-switch">
+            <switch  bindchange="switch1Change" color="#ED953E" />
+        </view>
+    </view>
+
+    <view class="line primary-view">
+        <view class="line-value line-name"><text>区分男女</text></view>
+        <view class="line-switch">
+            <switch  bindchange="switch1Change" color="#ED953E" />
+        </view>
+    </view>
+
+    <view class="line primary-view">
+        <view class="line-value line-name"><text>分组方式</text></view>
+        <view class="line-switch">
+            <picker bindchange="bindPickerChange" value="{{styleIndex}}" range="{{styleArray}}">
+                <view class="jiantou-view">
+                    <text class="fen-style">{{styleArray[styleIndex]}}</text>
+                    <image class="jiantou-image" src="../../image/jiantou.png"></image>
+                </view>
+            </picker>
+        </view>
+    </view>
+
+    <view class="tiaokuan-line">
+
+        
+          <checkbox-group class="check-view" bindchange="checkboxChange">
+            <checkbox value="{{checked}}" checked="{{checked}}" color="#ED953E"/>
+            </checkbox-group>
+        
+        <view class="check-text">
+            <text class="tiaokuan-text">已阅读并同意</text><text class="tiaokuan-text modal-text" bindtap="tioakuanModal">《小分组相关条款》</text>
+        </view>
+    </view>
+    <view>
+      <button>创建分组</button>
+    </view>
+    
+</view>

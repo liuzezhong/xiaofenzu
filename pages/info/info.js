@@ -1,11 +1,19 @@
-// pages/main/main.js
+// pages/info/info.js
 Page({
 
   /**
    * 页面的初始数据
+   * 
+   * 
+   * 
+   * 
+   * 
+   * 
+   * 
+   * 
    */
   data: {
-  
+    flight: 0,
   },
 
   /**
@@ -64,21 +72,11 @@ Page({
   
   },
 
-  setting: function() {
-    wx.navigateTo({
-      url: '../create/create',
-    })
-  },
-
-  invit: function() {
-    wx.navigateTo({
-      url: '../invit/invit',
-    })
-  },
-
-  user: function() {
-    wx.navigateTo({
-      url: '../user/user',
-    })
+  sliderChange: function (event) {
+    
+    var flight = event.detail;
+    this.setData({
+      flight: flight.value,
+    });
   }
 })

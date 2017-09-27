@@ -1,0 +1,30 @@
+<!--pages/info/info.wxml-->
+<view class="container">
+    <view class="headerground">
+        <view class="shanchu-view">
+            <image class="shanchu-image" src="../../image/shanchu.png"></image>
+        </view>
+
+    </view>
+    <view class="main">
+        <view class="header-view">
+            <image class="header-image" src="../../image/header.jpeg"></image>
+            <image class="xingbie-image" src="../../image/nv.png"></image>
+        </view>
+        <view class="info-view">
+            <view class="user-info">
+                <view class="nickname-view"><text class="nickname-text">刘老狗</text></view>
+                <view class="location-view"><text class="location-text">江苏省，无锡市</text></view>
+            </view>
+            <view class="zhandouli">
+                <view class="zhandouli-view"><text class="zhandouli-text">战斗力</text></view>
+                <view class="value-view"><text class="value-text">{{flight}}</text></view>
+            </view>
+        </view>
+    </view>
+    <view class="section">
+        <view class="slider-view">
+            <slider bindchange="sliderChange" step="1" min="0" max="99" value="{{flight}}" activeColor="#ED953E"/>
+        </view>
+    </view>
+</view>

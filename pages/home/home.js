@@ -62,5 +62,11 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  createFenzu: function() {
+    wx.navigateTo({
+      url: '../create/create',
+    })
   }
 })

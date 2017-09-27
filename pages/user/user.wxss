@@ -1,5 +1,154 @@
 /* pages/user/user.wxss */
 
 .search-view {
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  width: 680rpx;
+}
+
+input {
+  font-size: 28rpx;
+}
+
+.input-placeholder {
+  color: #B2B2B2;
+  display: flex;
+  justify-content: center;
+}
+
+.search-line {
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  width:710rpx;
+  height:60rpx; 
+  border-radius: 2px; 
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+
+.user-list {
+  width: 100%;
+  margin-top: 20rpx;
+  background-color: white;
+  display:flex;
+  flex-direction: column;
+}
+
+.user {
+  display: flex;
+  flex-direction: row;
+  height: 140rpx;
+  border-bottom-color: rgba(136,136,136,0.1);
+  border-style:solid;
+  border-width:thin;
+  border-left: none;
+  border-right: none;
+  border-top: none; 
+}
+
+.header {
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
+
+.header-image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.info {
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 545rpx;
+}
+
+.name-line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   
+}
+
+.name-view {
+
+}
+.name-text {
+  font-size: 36rpx;
+}
+
+.name-span {
+  margin-left: 15rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.guanli-span {
+  width:60rpx;
+  height:26rpx; 
+  background:rgba(9,187,7,1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15rpx;
+}
+.span-text {
+  font-size: 18rpx;
+  color: white;
+}
+
+.zhandouli-image {
+  width: 19rpx;
+  height: 19rpx;
+}
+
+.flight-span {
+  width:60rpx;
+  height:26rpx; 
+  background:rgba(237,149,62,1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15rpx;
+}
+
+.zhandouli-text {
+  padding-left: 5rpx;
+}
+
+.detail-info {
+  display: flex;
+  align-items: center
+}
+
+.detail-text {
+  color: #B2B2B2;
+  font-size: 26rpx;
+}
+
+.gengduo-image {
+  width: 24rpx;
+    height: 36rpx;
+}
+
+.more {
+  display: flex;
+  justify-content:flex-end;
+  align-items: center;
+}
+
+.number-view {
+  margin-top: 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-numer {
+  font-size:24rpx;
+  color: #B2B2B2;
 }

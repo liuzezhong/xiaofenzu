@@ -3,5 +3,5 @@
   <view class="smallji-view"><image class="smallji-image" src="../../image/smallji.png"></image></view>
   <view class="font-first"><text>新建分组邀请好友加入</text></view>
   <view class="font-second"><text>公平公正，快速获取分组信息</text></view>
-  <view class="button-view"><button>新建分组</button></view>
+  <view class="button-view"><button bindtap="createFenzu">新建分组</button></view>
 </view>

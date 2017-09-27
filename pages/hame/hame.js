@@ -1,4 +1,4 @@
-// pages/main/main.js
+// pages/hame/hame.js
 Page({
 
   /**
@@ -64,21 +64,9 @@ Page({
   
   },
 
-  setting: function() {
+  fenzuMain: function() {
     wx.navigateTo({
-      url: '../create/create',
-    })
-  },
-
-  invit: function() {
-    wx.navigateTo({
-      url: '../invit/invit',
-    })
-  },
-
-  user: function() {
-    wx.navigateTo({
-      url: '../user/user',
+      url: '../main/main',
     })
   }
 })

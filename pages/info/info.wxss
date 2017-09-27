@@ -1,0 +1,96 @@
+/* pages/info/info.wxss */
+
+.headerground {
+    width: 750rpx;
+    height: 168rpx;
+    background: rgba(237, 150, 62, 1);
+}
+
+.shanchu-view {
+    padding-left: 656rpx;
+    padding-top: 122rpx;
+}
+
+.shanchu-image {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.main {
+    margin-left: 64rpx;
+    margin-top: -84rpx;
+}
+
+.header-image {
+    width: 168rpx;
+    height: 168rpx;
+    border-radius: 100%;
+}
+
+.info-view {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30rpx;
+}
+
+.zhandouli {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 340rpx;
+}
+
+.nickname-text {
+    font-size: 48rpx;
+}
+
+.location-text {
+    font-size: 24rpx;
+    color: #b2b2b2;
+}
+
+.zhandouli {
+    display: flex;
+    align-items: flex-end;
+    margin-left: 130rpx;
+    margin-top: -72rpx;
+}
+
+.zhandouli-text {
+    font-size: 24rpx;
+    color: #b2b2b2;
+}
+
+.value-text {
+    color: #ed953e;
+    font-size: 200rpx;
+}
+
+.value-view {
+    margin-left: 15rpx;
+}
+
+.zhandouli-view {
+    margin-bottom: 60rpx;
+}
+
+.section {
+    margin-left: 35rpx;
+    margin-top: 112rpx;
+}
+
+.slider-view {
+    padding-right: 40rpx;
+}
+
+.xingbie-image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: -50rpx;
+  margin-top:-40rpx;
+}

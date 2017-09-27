@@ -77,4 +77,10 @@ Page({
       }
     }
   },
+
+  returnList: function() {
+    wx.redirectTo({
+      url: '../hame/hame',
+    })
+  }
 })

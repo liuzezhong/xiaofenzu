@@ -5,7 +5,7 @@
                 <view class="title-view-full">
                     <view class="title-view"><text class="title-text">"中铠羽毛球俱乐部"分组</text></view>
                 </view>
-                <view class="title-icon">
+                <view class="title-icon" bindtap="setting">
                     <image class="icon-image" src="../../image/shezhi.png"></image>
                 </view>
             </view>
@@ -42,12 +42,12 @@
                 <image class="icon-image" src="../../image/lianxiren.png"></image>
                 <text class="icon-text">分组成员</text>
             </view>
-            <view class="chengyuan-title chengyuan-title-right">
+            <view class="chengyuan-title chengyuan-title-right" bindtap="invit">
                 <image class="icon-image" src="../../image/yaoqin.png"></image>
                 <text class="icon-text">邀请新成员</text>
             </view>
         </view>
-        <view class="header-line">
+        <view class="header-line" bindtap="user">
             <view class="header-view">
                 <image class="header-image" src="../../image/header.jpeg"></image>
                 <image class="header-image header-image-padding-left" src="../../image/header2.jpeg"></image>

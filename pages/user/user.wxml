@@ -1,5 +1,87 @@
 <view class="container">
-  <view class="search-view">
-  </view>
-  </view>
+    <view class="search-line">
+        <view class="search-view">
+            <input placeholder-class="input-placeholder" placeholder="搜索" />
+        </view>
+    </view>
+    <view class="user-list">
+        <view class="user" bindtap="info">
+            <view class="header">
+                <image class="header-image" src="../../image/header.jpeg"></image>
+            </view>
+            <view class="info">
+                <view class="name-line">
+                    <view class="name-view">
+                        <text class="name-text">刘老狗</text>
+                    </view>
+                    <view class="name-span">
+                        <view class="guanli-span"><text class="span-text">管理员</text></view>
+                        <view class="flight-span">
+                            <image class="zhandouli-image" src="../../image/zhandouli.png"></image>
+                            <text class="span-text zhandouli-text">80</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="detail-info">
+                    <text class="detail-text">9月20日创建分组</text>
+                </view>
+            </view>
+            <view class="more">
+                <image class="gengduo-image" src="../../image/jiantou.png"></image>
+            </view>
+        </view>
+
+        <view class="user">
+            <view class="header">
+                <image class="header-image" src="../../image/header2.jpeg"></image>
+            </view>
+            <view class="info">
+                <view class="name-line">
+                    <view class="name-view">
+                        <text class="name-text">静默</text>
+                    </view>
+                    <view class="name-span">
+                        <view class="flight-span">
+                            <image class="zhandouli-image" src="../../image/zhandouli.png"></image>
+                            <text class="span-text zhandouli-text">80</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="detail-info">
+                    <text class="detail-text">9月20日创建分组</text>
+                </view>
+            </view>
+            <view class="more">
+                <image class="gengduo-image" src="../../image/jiantou.png"></image>
+            </view>
+        </view>
+
+        <view class="user">
+            <view class="header">
+                <image class="header-image" src="../../image/header3.jpeg"></image>
+            </view>
+            <view class="info">
+                <view class="name-line">
+                    <view class="name-view">
+                        <text class="name-text">Everybody</text>
+                    </view>
+                    <view class="name-span">
+                        <view class="flight-span">
+                            <image class="zhandouli-image" src="../../image/zhandouli.png"></image>
+                            <text class="span-text zhandouli-text">80</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="detail-info">
+                    <text class="detail-text">9月20日刘老狗邀请进组</text>
+                </view>
+            </view>
+            <view class="more">
+                <image class="gengduo-image" src="../../image/jiantou.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="number-view">
+      <text class="user-numer">6位成员</text>
+    </view>
 </view>

@@ -22,5 +22,5 @@
     </view>
 
     <view class="firstbutton-view"><button open-type="share">邀请好友</button></view>
-    <view class="secondbutton-view"><button class="button-primary">返回列表</button></view>
+    <view class="secondbutton-view"><button class="button-primary" bindtap="returnList">返回列表</button></view>
 </view>

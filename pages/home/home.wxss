@@ -42,7 +42,6 @@ button {
     border-radius: 100%;
     background: rgba(237, 149, 62, 1);
     color: white;
-    padding-top: 100rpx;
     font-size: 48rpx;
     display: flex;
     flex-direction: row;

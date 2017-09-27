@@ -47,7 +47,7 @@
         </view>
     </view>
     <view>
-      <button>创建分组</button>
+      <button bindtap="createFenzu">创建分组</button>
     </view>
     
 </view>

@@ -1,34 +1,35 @@
 <view class="container">
+    <form bindsubmit="formSubmit" bindreset="formReset">
     <view class="line first-view">
         <view class="line-value line-name"><text>分组名称</text></view>
-        <view class="line-value"><input type="text" placeholder="请输入分组名称" focus/></view>
+        <view class="line-value"><input type="text" name="name" placeholder="请输入分组名称" value="{{groupInfo.name}}" focus/></view>
     </view>
 
     <view class="line primary-view">
         <view class="line-value line-name"><text>每组人数</text></view>
-        <view class="line-value"><input type="number" placeholder="请输入每组人数" focus/></view>
+        <view class="line-value"><input type="number" name="number" placeholder="请输入每组人数" value="{{groupInfo.number}}" focus/></view>
     </view>
 
     <view class="line primary-view">
         <view class="line-value line-name"><text>选出组长</text></view>
         <view class="line-switch">
-            <switch  bindchange="switch1Change" color="#ED953E" />
+            <switch  name="leader" color="#ED953E" checked="{{leaderSwitch}}"/>
         </view>
     </view>
 
     <view class="line primary-view">
         <view class="line-value line-name"><text>区分男女</text></view>
         <view class="line-switch">
-            <switch  bindchange="switch1Change" color="#ED953E" />
+            <switch  name="sex" color="#ED953E" checked="{{sexSwitch}}"/>
         </view>
     </view>
 
     <view class="line primary-view">
         <view class="line-value line-name"><text>分组方式</text></view>
         <view class="line-switch">
-            <picker bindchange="bindPickerChange" value="{{styleIndex}}" range="{{styleArray}}">
+            <picker bindchange="bindPickerChange" name="style_id" value="{{styleKeyArray[styleIndex]}}" range="{{styleNameArray}}">
                 <view class="jiantou-view">
-                    <text class="fen-style">{{styleArray[styleIndex]}}</text>
+                    <text class="fen-style">{{styleNameArray[styleIndex]}}</text>
                     <image class="jiantou-image" src="../../image/jiantou.png"></image>
                 </view>
             </picker>
@@ -47,7 +48,12 @@
         </view>
     </view>
     <view>
-      <button bindtap="createFenzu">创建分组</button>
+      <block wx:if="{{groupInfo.group_id}}">
+        <button formType="submit" data-groupid="{{groupInfo.group_id}}">保存修改</button>
+      </block>
+      <block wx:else>
+        <button formType="submit">创建分组</button>
+      </block>
     </view>
-    
+    </form>
 </view>

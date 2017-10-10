@@ -1,3 +1,4 @@
+import $ from 'common/common.js';
 //app.js
 App({
   onLaunch: function () {
@@ -7,9 +8,89 @@ App({
     wx.setStorageSync('logs', logs)
 
     // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+    wx.checkSession({
+      success: function () {
+        //session 未过期，并且在本生命周期一直有效
+        if (wx.getStorageSync('sessionKey')) {
+          //如果缓存中存在sessionKey，查看是否后台中存在
+          $.post(
+            'index.php?m=sapp&c=login&a=checkSession',
+            {
+              sessionKey: JSON.stringify(wx.getStorageSync('sessionKey')),
+            },
+            function (res) {
+              console.log(res.data);
+              if (res.data.status == 1) {
+                console.log(res.data.message);
+              } else {
+                wx.login({
+                  success: res => {
+                    if (res.code) {
+                      // 发送 res.code 到后台换取 openId, sessionKey, unionId
+                      $.post(
+                        'index.php?m=sapp&c=login&a=wxlogin',
+                        {
+                          code: res.code,
+                        },
+                        function (res) {
+                          console.log(res.data);
+                          wx.setStorageSync('sessionKey', res.data);
+                        }
+                      )
+                    } else {
+                      console.log('获取用户登录态失败！' + res.errMsg)
+                    }
+
+                  }
+                })
+              }
+            }
+          )
+        } else {
+          wx.login({
+            success: res => {
+              if (res.code) {
+                // 发送 res.code 到后台换取 openId, sessionKey, unionId
+                $.post(
+                  'index.php?m=sapp&c=login&a=wxlogin',
+                  {
+                    code: res.code,
+                  },
+                  function (res) {
+                    console.log(res.data);
+                    wx.setStorageSync('sessionKey', res.data);
+                  }
+                )
+              } else {
+                console.log('获取用户登录态失败！' + res.errMsg)
+              }
+            }
+          })
+        }
+      },
+      fail: function () {
+        //登录态过期
+
+        wx.login({
+          success: res => {
+            if (res.code) {
+              // 发送 res.code 到后台换取 openId, sessionKey, unionId
+              $.post(
+                'index.php?m=sapp&c=login&a=wxlogin',
+                {
+                  code: res.code,
+                },
+                function (res) {
+                  console.log(res.data);
+                  wx.setStorageSync('sessionKey', res.data);
+                }
+              )
+            } else {
+              console.log('获取用户登录态失败！' + res.errMsg)
+            }
+
+          }
+        })
       }
     })
     // 获取用户信息

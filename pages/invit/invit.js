@@ -1,3 +1,4 @@
+import $ from '../../common/common.js';
 // pages/invit/invit.js
 Page({
 
@@ -5,14 +6,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    groupInfo:[],
+    userInfo:[],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var group_id = options.group_id;
+    var that = this;
+    $.post(
+      'index.php?m=sapp&c=group&a=findGroup',
+      { group_id: JSON.stringify(group_id),
+        sessionKey: JSON.stringify(wx.getStorageSync('sessionKey'))},
+      function (res) {
+        console.log(res);
+        that.setData({
+          'groupInfo': res.data.groupInfo,
+          'userInfo': res.data.userInfo,
+        });
+      }
+    );
   },
 
   /**
@@ -61,19 +76,22 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
-    console.log(res.from)
+
     if (res.from === 'button') {
       // 来自页面内转发按钮
-      console.log(res.target)
-    }
-    return {
-      title: '刘老狗邀请你加入分组！',
-      path: '/page/user?id=123',
-      success: function (res) {
-        // 转发成功
-      },
-      fail: function (res) {
-        // 转发失败
+      var group_id = res.target.dataset.groupid;
+      var group_name = res.target.dataset.groupname;
+      var nickname = res.target.dataset.nickname;
+      
+      return {
+        title: nickname+'邀请你加入'+group_name+'！',
+        path: '/page/main?group_id='+group_id,
+        success: function (res) {
+          // 转发成功
+        },
+        fail: function (res) {
+          // 转发失败
+        }
       }
     }
   },

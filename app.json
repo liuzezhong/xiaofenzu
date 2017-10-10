@@ -1,14 +1,15 @@
 {
   "pages":[
+    
     "pages/home/home",
     "pages/hame/hame",
-    
+    "pages/create/create",
     "pages/info/info",
     "pages/user/user",
     
     "pages/main/main",
     "pages/invit/invit",
-    "pages/create/create",
+    
     
     "pages/index/index",
     

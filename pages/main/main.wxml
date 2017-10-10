@@ -1,97 +1,130 @@
 <view class="container">
-    <view class="main">
-        <view class="title-line">
-            <view class="title-line-full">
-                <view class="title-view-full">
-                    <view class="title-view"><text class="title-text">"中铠羽毛球俱乐部"分组</text></view>
-                </view>
-                <view class="title-icon" bindtap="setting">
-                    <image class="icon-image" src="../../image/shezhi.png"></image>
-                </view>
-            </view>
+  <view class="main">
+    <view class="title-line">
+      <view class="title-line-full">
+        <view class="title-view-full">
+          <view class="title-view">
+            <text class="title-text">"{{groupInfo.name}}"分组</text>
+          </view>
         </view>
-
-        <view class="button-view"><button>立即分组</button></view>
-        <view class="status-line">
-            <view class="status-line-view">
-                <image class="icon-image" src="../../image/zuzhang.png"></image>
-                <text class="icon-text">不选组长</text>
-            </view>
-            <view class="fenge-line"></view>
-            <view class="status-line-view status-padding-left">
-                <image class="icon-image" src="../../image/xingbie.png"></image>
-                <text class="icon-text">区分男女</text>
-            </view>
-            <view class="fenge-line"></view>
-            <view class="status-line-view status-padding-left">
-                <image class="icon-image" src="../../image/suiji.png"></image>
-                <text class="icon-text">随机分组</text>
-            </view>
-
+        <view class="title-icon" bindtap="setting" data-groupid="{{groupInfo.group_id}}">
+          <image class="icon-image" src="../../image/shezhi.png"></image>
         </view>
-        <view class="heng-line"></view>
-        <view class="guize-title">
-            <image class="icon-image" src="../../image/guize.png"></image>
-            <text class="icon-text">分组规则</text>
-        </view>
-        <view class="guize-value">
-            <text class="guize-value-text">不区分男女，进行随机，分组规则随机，不选组长，公平分组。</text>
-        </view>
-        <view class="chengyuan-view">
-            <view class="chengyuan-title">
-                <image class="icon-image" src="../../image/lianxiren.png"></image>
-                <text class="icon-text">分组成员</text>
-            </view>
-            <view class="chengyuan-title chengyuan-title-right" bindtap="invit">
-                <image class="icon-image" src="../../image/yaoqin.png"></image>
-                <text class="icon-text">邀请新成员</text>
-            </view>
-        </view>
-        <view class="header-line" bindtap="user">
-            <view class="header-view">
-                <image class="header-image" src="../../image/header.jpeg"></image>
-                <image class="header-image header-image-padding-left" src="../../image/header2.jpeg"></image>
-                <image class="header-image header-image-padding-left" src="../../image/header3.jpeg"></image>
-                <image class="header-image header-image-padding-left" src="../../image/header4.jpeg"></image>
-                <image class="header-image header-image-padding-left" src="../../image/header5.jpeg"></image>
-                <image class="header-image header-image-padding-left" src="../../image/header6.jpeg"></image>
-            </view>
-            <view>
-                <image class="gengduo-image" src="../../image/gengduo.png"></image>
-            </view>
-        </view>
+      </view>
     </view>
 
-    <view class="fenzu-line">
-        <view class="fenzu-name-view"><text class="fenzu-name">A</text></view>
-        <view class="xu-fenge-line"></view>
-        <view class="fenzu-header-view">
-            <view class="header-image-view">
-                <image class="header-image" src="../../image/header.jpeg"></image><text class="header-image-text">刘老狗</text>
-            </view>
-            <view class="header-image-view">
-                <image class="header-image" src="../../image/header2.jpeg"></image><text class="header-image-text">静默</text>
-            </view>
-            <view class="header-image-view">
-                <image class="header-image" src="../../image/header3.jpeg"></image><text class="header-image-text">Everybody</text>
-            </view>
-        </view>
+    <view class="button-view">
+      <button>立即分组</button>
+    </view>
+    <view class="status-line">
+      <view class="status-line-view">
+        <image class="icon-image" src="../../image/zuzhang.png"></image>
+        <block wx:if="{{groupInfo.leader == 1}}">
+          <text class="icon-text">选出组长</text>
+        </block>
+        <block wx:else>
+          <text class="icon-text">不选组长</text>
+        </block>
+      </view>
+      <view class="fenge-line"></view>
+      <view class="status-line-view status-padding-left">
+        <image class="icon-image" src="../../image/xingbie.png"></image>
+        <block wx:if="{{groupInfo.sex == 1}}">
+          <text class="icon-text">区分男女</text>
+        </block>
+        <block wx:else>
+          <text class="icon-text">不分男女</text>
+        </block>
+      </view>
+      <view class="fenge-line"></view>
+      <view class="status-line-view status-padding-left">
+        <image class="icon-image" src="../../image/suiji.png"></image>
+        <text class="icon-text">{{groupInfo.style_name}}</text>
+      </view>
 
     </view>
-
-    <view class="fenzu-line">
-        <view class="fenzu-name-view"><text class="fenzu-name">B</text></view>
-        <view class="xu-fenge-line"></view>
-        <view class="fenzu-header-view">
-            <view class="header-image-view">
-                <image class="header-image" src="../../image/header4.jpeg"></image><text class="header-image-text">qf</text></view>
-            <view class="header-image-view">
-                <image class="header-image" src="../../image/header5.jpeg"></image><text class="header-image-text">小爆哥</text></view>
-            <view class="header-image-view">
-                <image class="header-image" src="../../image/header6.jpeg"></image><text class="header-image-text">社会我娜姐</text></view>
-        </view>
-
+    <view class="heng-line"></view>
+    <view class="guize-title">
+      <image class="icon-image" src="../../image/guize.png"></image>
+      <text class="icon-text">分组规则</text>
     </view>
-    <view class="footer">
+    <view class="guize-value">
+      <block wx:if="{{groupInfo.style_id == 0}}">
+        <text class="guize-value-text">不区分男女，进行随机，分组规则随机，不选组长，公平分组。</text>
+      </block>
+      <block wx:else> 
+        <text class="guize-value-text">用户信息界面调整用户实力，按实力进行公平分组，不做无用功。</text>
+      </block>
+      
     </view>
+    <view class="chengyuan-view">
+      <view class="chengyuan-title">
+        <image class="icon-image" src="../../image/lianxiren.png"></image>
+        <text class="icon-text">分组成员</text>
+      </view>
+      <view class="chengyuan-title chengyuan-title-right" bindtap="invit">
+        <image class="icon-image" src="../../image/yaoqin.png"></image>
+        <text class="icon-text">邀请新成员</text>
+      </view>
+    </view>
+    <view class="header-line" bindtap="user">
+      <view class="header-view">
+        <image class="header-image" src="../../image/header.jpeg"></image>
+        <image class="header-image header-image-padding-left" src="../../image/header2.jpeg"></image>
+        <image class="header-image header-image-padding-left" src="../../image/header3.jpeg"></image>
+        <image class="header-image header-image-padding-left" src="../../image/header4.jpeg"></image>
+        <image class="header-image header-image-padding-left" src="../../image/header5.jpeg"></image>
+        <image class="header-image header-image-padding-left" src="../../image/header6.jpeg"></image>
+      </view>
+      <view>
+        <image class="gengduo-image" src="../../image/gengduo.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="fenzu-line">
+    <view class="fenzu-name-view">
+      <text class="fenzu-name">A</text>
+    </view>
+    <view class="xu-fenge-line"></view>
+    <view class="fenzu-header-view">
+      <view class="header-image-view">
+        <image class="header-image" src="../../image/header.jpeg"></image>
+        <text class="header-image-text">刘老狗</text>
+      </view>
+      <view class="header-image-view">
+        <image class="header-image" src="../../image/header2.jpeg"></image>
+        <text class="header-image-text">静默</text>
+      </view>
+      <view class="header-image-view">
+        <image class="header-image" src="../../image/header3.jpeg"></image>
+        <text class="header-image-text">Everybody</text>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="fenzu-line">
+    <view class="fenzu-name-view">
+      <text class="fenzu-name">B</text>
+    </view>
+    <view class="xu-fenge-line"></view>
+    <view class="fenzu-header-view">
+      <view class="header-image-view">
+        <image class="header-image" src="../../image/header4.jpeg"></image>
+        <text class="header-image-text">qf</text>
+      </view>
+      <view class="header-image-view">
+        <image class="header-image" src="../../image/header5.jpeg"></image>
+        <text class="header-image-text">小爆哥</text>
+      </view>
+      <view class="header-image-view">
+        <image class="header-image" src="../../image/header6.jpeg"></image>
+        <text class="header-image-text">社会我娜姐</text>
+      </view>
+    </view>
+
+  </view>
+  <view class="footer">
+  </view>
 </view>

@@ -1,3 +1,4 @@
+import $ from '../../common/common.js';
 // pages/create/create.js
 Page({
 
@@ -5,16 +6,136 @@ Page({
    * 页面的初始数据
    */
   data: {
-    styleArray: ['随机分组', '实力分组', ],
+    styleArray: ['随机分组', '实力分组',],
+    styleNameArray:[],
+    styleKeyArray:[],
     styleIndex: 0 ,
     checked:true,
+    groupInfo:{},
+    userInfo:{},
+
+    leaderSwitch:false,
+    sexSwitch:false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this;
+    var group_id = options.group_id;
+    
+    $.post(
+      'index.php?m=sapp&c=style&a=getAllStyle',
+      {},
+      function (res) {
+        that.setData({
+          'styleNameArray': res.data.styleNameArray,
+          'styleKeyArray': res.data.styleKeyArray,
+        });
+      }
+    );
+
+    if (group_id) {
+      $.post(
+        'index.php?m=sapp&c=group&a=findGroup',
+        {
+          sessionKey: JSON.stringify(wx.getStorageSync('sessionKey')),
+          group_id: JSON.stringify(group_id),
+        },
+        function (res) {
+          console.log(res.data);
+          if (res.data.status == 1) {
+            console.log(res.data.message);
+            if(res.data.groupInfo.leader == 1) {
+              that.setData({
+                leaderSwitch: true,
+              });
+            }
+            if (res.data.groupInfo.sex == 1) {
+              that.setData({
+                sex: true,
+              });
+            }
+            that.setData({
+              groupInfo: res.data.groupInfo,
+              userInfo: res.data.userInfo,
+              styleIndex: res.data.groupInfo.style_id,
+            });
+            
+          } else {
+            console.log(res.data.message);
+          }
+        }
+      );
+    }
+  },
+
+  formSubmit: function (e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail)
+    var form = e.detail.value;
+    var group_id = e.detail.target.dataset.groupid;
+    if(form.name == '' || !form.name) {
+      wx.showToast({
+        title: '请输入分组名称',
+        icon: 'loading',
+        duration: 1500
+      })
+    } else if (form.number == '' || !form.number) {
+      wx.showToast({
+        title: '请输入每组人数',
+        icon: 'loading',
+        duration: 1500
+      })
+    }else {
+      if(group_id) {
+        $.post(
+          'index.php?m=sapp&c=group&a=updateGroup',
+          {
+            groupInfo: JSON.stringify(form),
+            sessionKey: JSON.stringify(wx.getStorageSync('sessionKey')),
+            group_id: JSON.stringify(group_id),
+          },
+          function (res) {
+            if (res.data.status == 1) {
+              var group_id = res.data.group_id;
+              wx.navigateBack({
+                delta: 1
+              })
+            } else {
+              wx.showToast({
+                title: res.data.message,
+                icon: 'loading',
+                duration: 1500
+              })
+            }
+          }
+        );
+      }else {
+        $.post(
+          'index.php?m=sapp&c=group&a=createGroup',
+          {
+            groupInfo: JSON.stringify(form),
+            sessionKey: JSON.stringify(wx.getStorageSync('sessionKey'))
+          },
+          function (res) {
+            if (res.data.status == 1) {
+              var group_id = res.data.group_id;
+              wx.reLaunch({
+                url: '../invit/invit?group_id=' + group_id,
+              })
+            } else {
+              wx.showToast({
+                title: res.data.message,
+                icon: 'loading',
+                duration: 1500
+              })
+            }
+          }
+        );
+      }
+      
+    }
   },
 
   /**
@@ -91,7 +212,7 @@ Page({
   },
 
   checkboxChange: function (e) {
-    console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+  
   },
 
   createFenzu: function () {

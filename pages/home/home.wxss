@@ -25,7 +25,7 @@
     align-items: center;
 }
 
-text {
+.no-text {
     font-size: 40rpx;
     font-family: PingFangSC-Regular;
     color: rgba(178, 178, 178, 1);
@@ -35,7 +35,7 @@ text {
     margin-top: 200rpx;
 }
 
-button {
+.nobutton {
     margin-left: 214rpx;
     width: 322rpx;
     height: 322rpx;
@@ -51,4 +51,97 @@ button {
 
 button::after {
     border: none;
+}
+
+
+.hasbutton {
+    margin-left: 214rpx;
+    width: 322rpx;
+    height: 322rpx;
+    border-radius: 100%;
+    background: rgba(237, 149, 62, 1);
+    color: white;
+    font-size: 48rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.newbutton {
+    margin-top: 114rpx;
+}
+
+.fenlist {
+    margin-top: 90rpx;
+}
+
+.line {
+    width: 680rpx;
+    height: 140rpx;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 2px;
+    margin-left: 35rpx;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30rpx;
+}
+
+.headers {
+    width: 92rpx;
+    height: 92rpx;
+    background: rgba(223, 223, 223, 1);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inline-headers {
+    width: 83rpx;
+    height: 83rpx;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+}
+
+.headers-view {
+    width: 140rpx;
+    height: 140rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fenname {
+    width: 440rpx;
+    height: 140rpx;
+    display: flex;
+    align-items: center;
+}
+
+.fentitle {
+    font-size: 28rpx;
+}
+
+.numers {
+    width: 100rpx;
+    height: 140rpx;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 24rpx;
+}
+
+.fennumers {
+    color: #b2b2b2;
+    font-size: 26rpx;
+}
+
+.header-image {
+    width: 24rpx;
+    height: 24rpx;
 }

@@ -1,82 +1,90 @@
 /* pages/main/main.wxss */
 
 .main {
-  width: 684rpx;
-  height: 100%;
-  background: rgba(255, 255, 255, 1);
-  border-radius: 2px;
-  margin-left: 33rpx;
-  margin-top: 30rpx;
+    width: 684rpx;
+    height: 100%;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 2px;
+    margin-left: 33rpx;
+    margin-top: 30rpx;
 }
 
 .title-line {
-  padding-left: 40rpx;
+    padding-left: 40rpx;
 }
 
 .title-line-full {
-  width: 604rpx;
-  padding-top: 34rpx;
-  display: flex;
-  flex-direction: row;
+    width: 604rpx;
+    padding-top: 34rpx;
+    display: flex;
+    flex-direction: row;
 }
 
 .title-view-full {
-  padding-left: 30rpx;
+    padding-left: 30rpx;
 }
 
 .title-view {
-  width: 544rpx;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+    width: 544rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .title-text {
-  font-size: 28rpx;
-  color: #b2b2b2;
+    font-size: 28rpx;
+    color: #b2b2b2;
 }
 
 .title-icon {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .icon-image {
-  width: 30rpx;
-  height: 30rpx;
+    width: 30rpx;
+    height: 30rpx;
 }
 
 .button-view {
-  padding-top: 40rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    padding-top: 40rpx;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
-button {
-  width: 200rpx;
-  height: 200rpx;
-  border-radius: 100%;
-  background: rgba(237, 149, 62, 1);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 32rpx;
+.total-number {
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 100%;
+    background: rgba(237, 149, 62, 1);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 72rpx;
 }
 
-button::after {
-  border: none;
+.gong-text {
+  font-size: 28rpx;
+  color: #b2b2b2;
+  padding-right: 22rpx;
+}
+
+.ren-text {
+  font-size: 28rpx;
+  color: #b2b2b2;
+  padding-left: 22rpx;
 }
 
 .status-line {
   padding-top: 40rpx;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content:center;
   align-items: center;
 }
 
@@ -174,21 +182,22 @@ button::after {
   display: flex;
   flex-direction: row;
   align-items: center;
+  
 }
 
 .fenzu-line {
   margin-top: 32rpx;
   margin-left: 33rpx;
-  width: 684rpx;
-  min-height: 138rpx;
-  background: rgba(255, 255, 255, 1);
+  width:684rpx;
+  height:138rpx; 
+  background:rgba(255,255,255,1);
   display: flex;
   flex-direction: row;
 }
 
 .fenzu-name {
   font-size: 72rpx;
-  color: #e6874a;
+  color: #E6874A;
 }
 
 .fenzu-name-view {
@@ -201,11 +210,11 @@ button::after {
 .xu-fenge-line {
   border-right-color: #b2b2b2;
   border-style: dashed;
-  border-width: thin;
-  border-style: dashed;
+  border-width:thin;
+  border-style:dashed;
   border-left: none;
   border-bottom: none;
-  border-top: none;
+  border-top: none; 
   opacity: 0.2;
 }
 
@@ -214,7 +223,6 @@ button::after {
   align-items: center;
   width: 460rpx;
   margin-left: 40rpx;
-  flex-wrap: wrap;
 }
 
 .header-image-view {
@@ -223,31 +231,33 @@ button::after {
   justify-content: center;
   flex-direction: column;
   padding-right: 30rpx;
-  padding-top: 10rpx;
 }
 
 .header-image-text {
   padding-top: 5rpx;
   font-size: 20rpx;
-  color: #333;
+  color: #333333;
 }
 
 .footer {
   height: 30rpx;
 }
 
-.status-view {
-  margin-top: -25rpx;
-  margin-left: 32rpx;
-  width: 26rpx;
-  height: 26rpx;
-  background-color: #ffeee6;
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-color: white;
-  border: 1rpx;
+.join-view {
+  margin-top: 50rpx;
+}
+
+.join-button {
+  width:686rpx;
+  height:100rpx; 
+  background:rgba(237,149,62,1);
+  border-radius: 4px;
+  color: white;
+  border: 0; 
+}
+
+button::after {
+  border: 0;
 }
 
 .status-view-guan {
@@ -267,28 +277,4 @@ button::after {
 .status-text {
   color: #e6874a;
   font-size: 14rpx;
-}
-
-.total-number {
-  width: 200rpx;
-  height: 200rpx;
-  border-radius: 100%;
-  background: rgba(237, 149, 62, 1);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 72rpx;
-}
-
-.gong-text {
-  font-size: 28rpx;
-  color: #b2b2b2;
-  padding-right: 22rpx;
-}
-
-.ren-text {
-  font-size: 28rpx;
-  color: #b2b2b2;
-  padding-left: 22rpx;
 }

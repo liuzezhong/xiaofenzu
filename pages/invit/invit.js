@@ -76,7 +76,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
-
+    
     if (res.from === 'button') {
       // 来自页面内转发按钮
       var group_id = res.target.dataset.groupid;
@@ -85,9 +85,11 @@ Page({
       
       return {
         title: nickname+'邀请你加入'+group_name+'！',
-        path: '/page/main?group_id='+group_id,
+        path: '/pages/join/join?groupid=' + group_id + '&user_id=' + this.data.userInfo.user_id,
         success: function (res) {
           // 转发成功
+          console.log('来自页面内转发按钮 转发成功');
+          console.log(res);
         },
         fail: function (res) {
           // 转发失败
@@ -98,7 +100,7 @@ Page({
 
   returnList: function() {
     wx.redirectTo({
-      url: '../hame/hame',
+      url: '../home/home',
     })
   }
 })

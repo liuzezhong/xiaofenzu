@@ -57,7 +57,7 @@
 .zhandouli {
     display: flex;
     align-items: flex-end;
-    margin-left: 130rpx;
+    margin-left: 120rpx;
     margin-top: -72rpx;
 }
 

@@ -72,9 +72,6 @@ input {
   
 }
 
-.name-view {
-
-}
 .name-text {
   font-size: 36rpx;
 }
@@ -143,6 +140,7 @@ input {
 
 .number-view {
   margin-top: 24rpx;
+  margin-bottom: 30rpx;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,30 +1,52 @@
 <!--pages/info/info.wxml-->
 <view class="container">
-    <view class="headerground">
-        <view class="shanchu-view">
-            <image class="shanchu-image" src="../../image/shanchu.png"></image>
-        </view>
-
+  <view class="headerground">
+    <view class="shanchu-view">
+      <image class="shanchu-image" src="../../image/shanchu.png"></image>
     </view>
-    <view class="main">
-        <view class="header-view">
-            <image class="header-image" src="../../image/header.jpeg"></image>
-            <image class="xingbie-image" src="../../image/nv.png"></image>
-        </view>
-        <view class="info-view">
-            <view class="user-info">
-                <view class="nickname-view"><text class="nickname-text">刘老狗</text></view>
-                <view class="location-view"><text class="location-text">江苏省，无锡市</text></view>
-            </view>
-            <view class="zhandouli">
-                <view class="zhandouli-view"><text class="zhandouli-text">战斗力</text></view>
-                <view class="value-view"><text class="value-text">{{flight}}</text></view>
-            </view>
-        </view>
+  </view>
+  <view class="main">
+    <view class="header-view">
+      <image class="header-image" src="{{userInfo.avatarurl}}"></image>
+      <block wx:if="{{userInfo.gender == 1}}">
+        <image class="xingbie-image" src="../../image/nan.png"></image>
+      </block>
+      <block wx:elif="{{userInfo.gender == 2}}">
+        <image class="xingbie-image" src="../../image/nv.png"></image>
+      </block>
     </view>
-    <view class="section">
-        <view class="slider-view">
-            <slider bindchange="sliderChange" step="1" min="0" max="99" value="{{flight}}" activeColor="#ED953E"/>
+    <view class="info-view">
+      <view class="user-info">
+        <view class="nickname-view">
+          <text class="nickname-text">{{userInfo.nickname}}</text>
         </view>
+        <view class="location-view">
+          <block wx:if="{{userInfo.province && userInfo.city}}">
+            <text class="location-text">{{userInfo.province}}，{{userInfo.city}}</text>
+          </block>
+          <block wx:else>
+            <text class="location-text">火星省，地球村</text>
+          </block>
+        </view>
+      </view>
+      <view class="zhandouli">
+        <view class="zhandouli-view">
+          <text class="zhandouli-text">战斗力</text>
+        </view>
+        <view class="value-view">
+          <text class="value-text">{{flight}}</text>
+        </view>
+      </view>
     </view>
+  </view>
+  <view class="section">
+    <view class="slider-view">
+      <block wx:if="{{canHua == 1}}">
+      <slider bindchange="sliderChange" step="1" min="0" max="99" value="{{flight}}" activeColor="#ED953E" />
+      </block>
+      <block wx:elif="{{canHua == 0}}">
+        <slider bindchange="sliderChange" step="1" min="0" max="99" value="{{flight}}" activeColor="#ED953E" disabled="true"/>
+      </block>
+    </view>
+  </view>
 </view>

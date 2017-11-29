@@ -11,7 +11,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     hasGroup: false,
-    groupList:{},
+    groupList: {},
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
@@ -49,8 +49,8 @@ Page({
     console.log('home.js onLoad');
     $.post(
       'index.php?m=sapp&c=group&a=findUserGroup',
-      {sessionKey: JSON.stringify(wx.getStorageSync('sessionKey'))},
-      function(res) {
+      { sessionKey: JSON.stringify(wx.getStorageSync('sessionKey')) },
+      function (res) {
         console.log(res.data.message);
         if (res.data.status == 1) {
           that.setData({
@@ -71,6 +71,7 @@ Page({
       })
       var user = this.data.userInfo;
       console.log(user);
+      this.uploadUserInfo();
       wx.navigateTo({
         url: '../create/create',
       })
@@ -81,74 +82,75 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   },
 
-  createFenzu: function() {
+  createFenzu: function () {
     this.uploadUserInfo();
     wx.navigateTo({
       url: '../create/create',
     })
   },
 
-  uploadUserInfo: function() {
+  uploadUserInfo: function () {
     var userInfo = this.data.userInfo;
-
     $.post(
       'index.php?m=sapp&c=login&a=saveUserInfo',
-      { sessionKey: JSON.stringify(wx.getStorageSync('sessionKey')),
-        userInfo: JSON.stringify(userInfo) },
+      {
+        sessionKey: JSON.stringify(wx.getStorageSync('sessionKey')),
+        userInfo: JSON.stringify(userInfo)
+      },
       function (res) {
         console.log(res.data);
       }
     );
   },
   fenzuMain: function (event) {
-      var groupid = event.currentTarget.dataset.groupid;
-      wx.navigateTo({
-        url: '../main/main?groupid='+groupid,
-      })
+    var groupid = event.currentTarget.dataset.groupid;
+    wx.navigateTo({
+      url: '../main/main?groupid=' + groupid,
+    })
   },
 })

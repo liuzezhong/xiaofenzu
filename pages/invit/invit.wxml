@@ -21,6 +21,6 @@
         </view>
     </view>
 
-    <view class="firstbutton-view"><button data-groupid="{{groupInfo.group_id}}" data-groupname="{{groupInfo.group_id}}" data-nickname="{{userInfo.nickname}}" open-type="share">邀请好友</button></view>
+    <view class="firstbutton-view"><button data-groupid="{{groupInfo.group_id}}" data-groupname="{{groupInfo.name}}" data-nickname="{{userInfo.nickname}}" open-type="share">邀请好友</button></view>
     <view class="secondbutton-view"><button class="button-primary" bindtap="returnList">返回列表</button></view>
 </view>

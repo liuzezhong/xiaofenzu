@@ -7,23 +7,13 @@
             <text class="title-text">"{{groupInfo.name}}"分组</text>
           </view>
         </view>
-        <block wx:if="{{isCreateUser == 1}}">
-          <view class="title-icon" bindtap="setting" data-groupid="{{groupInfo.group_id}}">
-            <image class="icon-image" src="../../image/shezhi.png"></image>
-          </view>
-        </block>
       </view>
     </view>
 
     <view class="button-view">
-      <block wx:if="{{isCreateUser == 1}}">
-        <button bindtap="newTeam">立即分组</button>
-      </block>
-      <block wx:else>
-        <text class="gong-text">共</text>
-        <text class="total-number">2</text>
-        <text class="ren-text">人</text>
-      </block>
+      <text class="gong-text">共</text>
+      <text class="total-number">2</text>
+      <text class="ren-text">人</text>
     </view>
     <view class="status-line">
       <view class="status-line-view">
@@ -61,19 +51,15 @@
       <block wx:if="{{groupInfo.style_id == 0}}">
         <text class="guize-value-text">不区分男女，进行随机，分组规则随机，不选组长，公平分组。</text>
       </block>
-      <block wx:else>
+      <block wx:else> 
         <text class="guize-value-text">用户信息界面调整用户实力，按实力进行公平分组，不做无用功。</text>
       </block>
-
+      
     </view>
     <view class="chengyuan-view">
       <view class="chengyuan-title">
         <image class="icon-image" src="../../image/lianxiren.png"></image>
         <text class="icon-text">分组成员</text>
-      </view>
-      <view class="chengyuan-title chengyuan-title-right" bindtap="invit">
-        <image class="icon-image" src="../../image/yaoqin.png"></image>
-        <text class="icon-text">邀请新成员</text>
       </view>
     </view>
     <view class="header-line" bindtap="user">
@@ -90,50 +76,16 @@
           </block>
         </block>
       </view>
-      <view>
-        <image class="gengduo-image" src="../../image/gengduo.png"></image>
-      </view>
     </view>
   </view>
-
-  <block wx:for="{{teamArray}}">
-    <view class="fenzu-line">
-      <view class="fenzu-name-view">
-        <text class="fenzu-name">{{index}}</text>
-      </view>
-      <view class="xu-fenge-line"></view>
-      <view class="fenzu-header-view">
-        <block wx:for="{{item}}" wx:for-item="sonItem" wx:for-index="sonIndex">
-          <block wx:if="{{groupInfo.leader == 1}}">
-            <!-- 选出组长 -->
-            <block wx:if="{{sonIndex == 0}}">
-              <view class="header-image-view">
-                <image class="header-image" src="{{sonItem.avatarurl}}"></image>
-                <view class="status-view">
-                  <text class="status-text">组</text>
-                </view>
-                <text class="header-image-text">{{sonItem.nickname}}</text>
-              </view>
-            </block>
-            <block wx:else>
-              <view class="header-image-view">
-                <image class="header-image" src="{{sonItem.avatarurl}}"></image>
-                <text class="header-image-text">{{sonItem.nickname}}</text>
-              </view>
-            </block>
-          </block>
-          <block wx:else>
-            <!-- 不选组长 -->
-            <view class="header-image-view">
-              <image class="header-image" src="{{sonItem.avatarurl}}"></image>
-              <text class="header-image-text">{{sonItem.nickname}}</text>
-            </view>
-          </block>
-
-        </block>
-      </view>
-    </view>
-  </block>
+  <view class="join-view">
+    <block wx:if="{{!hasUserInfo && canIUse}}">
+      <button class="join-button" open-type="getUserInfo" bindgetuserinfo="getUserInfo">加入分组</button>
+      </block>
+      <block wx:else>
+        <button class="join-button" bindtap="joinGroup">加入分组</button>
+    </block>
+  </view>
   <view class="footer">
   </view>
 </view>

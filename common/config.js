@@ -1,5 +1,5 @@
 
 export default {
-  'server': 'http://xiaofenzu.com/',
-  //'server': 'http://192.168.103.242/weapp.zhongkaiyun.com/',
+  'server': 'https://xfz.xianshikeji.com/',
+  //'server': 'http://192.168.2.182/xiaofenzu/',
 }

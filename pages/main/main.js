@@ -9,6 +9,10 @@ Page({
     groupInfo:{},
     userInfo:{},
     groupid:0,
+    memberUserInfo:{},
+    members : {},
+    teamArray : {},
+    isCreateUser : 0,
   },
 
   /**
@@ -44,13 +48,15 @@ Page({
           group_id: JSON.stringify(groupid),
         },
         function (res) {
-          console.log(res.data);
+          
           if (res.data.status == 1) {
-            console.log(res.data.message);
-
             that.setData({
               groupInfo: res.data.groupInfo,
               userInfo: res.data.userInfo,
+              // memberUserInfo : res.data.memberUserInfo,
+              members: res.data.members,
+              teamArray: res.data.teamArray,
+              isCreateUser: res.data.isCreateUser,
             });
           } else {
             console.log(res.data.message);
@@ -59,6 +65,25 @@ Page({
       );
     }
     console.log('生命周期函数--监听页面显示OK');
+  },
+
+  newTeam: function (e) {
+    var that = this;
+    $.post(
+      'index.php?m=sapp&c=group&a=checkgroup',
+      {
+        group_id : this.data.groupid,
+      },
+      function(res) {
+        if(res.data.status == 1) {
+          that.setData({
+            teamArray: res.data.teamArray,
+          });
+        }else {
+          console.log(res.data);
+        }
+      }
+    );
   },
 
   /**
@@ -104,14 +129,17 @@ Page({
   },
 
   invit: function() {
+    var group_id = this.data.groupid;
     wx.navigateTo({
-      url: '../invit/invit',
+      url: '../invit/invit?group_id='+group_id,
     })
   },
 
   user: function() {
+    console.log(this.data.group_id);
     wx.navigateTo({
-      url: '../user/user',
+      url: '../user/user?group_id='+this.data.groupid,
     })
-  }
+  },
+
 })
